@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Books' Finder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <script type="text/javascript" src="insertBook.js"> 
+        </script>
+        <script type="text/javascript" src="xmlsearch.js"> 
+        </script>
+    </head>
+    <body>
+        <div class="outer-box width_96">
+            <p class="title"><a href="http://voreakou.azurewebsites.net/frontend.html">Books' Finder</a></p>
+        </div>
+
+        <div class="half_46 outer-box" style="min-height:300px">
+
+           <p class="subtitle">Καταχώρηση βιβλίου</p>
+            <form >
+            <table class="tg">
+                <tr>
+                    <th class="tg-gs72">Author</th>
+                    <th class="tg-9etp"><input type="text" name="author" id="in-author" maxlength="25" ></th>
+                </tr>
+                <tr>
+                    <td class="tg-gs72">Title</td>
+                    <td class="tg-9etp"><input type="text" name="title" id="in-title" maxlength="40" ></td>
+                </tr>
+                <tr>
+                    <td class="tg-gs72">Price</td>
+                    <td class="tg-9etp"><input type="number" step="0.01" name="price" id="in-price" maxlength="6" pattern="\d[0-9][^a-z|A-Z]"></td>
+                </tr>
+            </table>
+
+
+            <div class="">
+                <div class="half_46">
+                    <p class="genre"  >Genre</p>
+                <select name="genre" id="in-genre">
+                    <option value="science">Science fiction</option>
+                    <option value="satire">Satire</option>
+                    <option value="drama">Drama</option>
+                    <option value="action">Action & Adventure</option>
+                    <option value="romance">Romance</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="horror">Horror</option>
+                </select>
+                </div>
+                <div class="">
+                    <input class="submit" type="button" onclick="insertBook()" value="Καταχώρηση βιβλίου">
+                </div>
+                 <p class="clear_both"></p>
+            </div>
+                <p class="clear_both"></p>
+            </form>
+            <p class="clear_both"></p>
+            
+            <div class="result-div outer-box" name="result-insert" id="result-insert" style="min-height:300px; margin-top:10px;">
+            </div>
+            
+        </div>
+     
+     
+     
+        <div class="half_46 outer-box" style="min-height:300px">
+
+            <p class="subtitle">Αναζήτηση βιβλίου</p>
+            <form>
+                
+                <p style="font-size: 20px;font-style: italic;text-align:center;">Αναζήτηση με keyword (Author, title, genre)</p>
+                <div class="search_div">
+                
+                    <input type="text" id="search_textarea" name="search_textarea" class="textarea_box" placeholder="Keyword here..."  onkeypress="if (event.keyCode == 13) return false;" onkeyup="if (event.keyCode == 13) return false;" onkeydown="if (event.keyCode == 13) loadXMLDoc();"></input>
+                
+   
+                    <input class="submit" type="button" onclick="loadJSONDoc()" value="Αναζήτηση βιβλίου">
+                
+                </div>
+
+            </form>
+    
+        <div class="result-div outer-box " name="result-div" id="result-div" style="min-height:300px;margin-top:10px;">
+        </div>
+       
+        </div>
+    </body>
+</html>
